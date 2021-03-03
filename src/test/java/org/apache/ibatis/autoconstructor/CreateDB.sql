@@ -14,14 +14,12 @@
 --    limitations under the License.
 --
 
-DROP TABLE subject
-IF EXISTS;
+DROP TABLE IF EXISTS subject;
 
-DROP TABLE extensive_subject
-IF EXISTS;
+DROP TABLE IF EXISTS extensive_subject;
 
 CREATE TABLE subject (
-  id     INT NOT NULL,
+  id     INT NOT NULL auto_increment primary key,
   name   VARCHAR(20),
   age    INT NOT NULL,
   height INT,
@@ -31,25 +29,25 @@ CREATE TABLE subject (
 );
 
 CREATE TABLE extensive_subject (
-  aByte      TINYINT,
+  aByte      TINYINT auto_increment primary key,
   aShort     SMALLINT,
   aChar      CHAR,
   anInt      INT,
   aLong      BIGINT,
   aFloat     FLOAT,
   aDouble    DOUBLE,
-  aBoolean   BIT,
+  aBoolean   tinyint,
   aString    VARCHAR(255),
   anEnum     VARCHAR(50),
-  aClob      LONGVARCHAR,
-  aBlob      LONGVARBINARY,
+  aClob      text,
+  aBlob      text,
   aTimestamp TIMESTAMP
 );
 
 INSERT INTO subject VALUES
   (1, 'a', 10, 100, 45, 1, CURRENT_TIMESTAMP),
   (2, 'b', 10, NULL, 45, 1, CURRENT_TIMESTAMP),
-  (2, 'c', 10, NULL, NULL, 0, CURRENT_TIMESTAMP);
+  (3, 'c', 10, NULL, NULL, 0, CURRENT_TIMESTAMP);
 
 INSERT INTO extensive_subject
 VALUES
